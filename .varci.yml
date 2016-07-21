@@ -8,3 +8,16 @@ ruleset:
       Thanks for the {{ subject }}! Make sure it satisfies [this checklist](https://github.com/process-bot/contribution-checklist/blob/master/{{ subject = issue ? "issues" : "pulls" }}.md). My human colleagues will appreciate it!
 
       Here is [what to expect next](https://github.com/process-bot/contribution-checklist/blob/master/expectations.md), and if anyone wants to comment, keep [these things](https://github.com/process-bot/contribution-checklist/blob/master/participation.md) in mind.
+
+  close_down:
+    name: "Suggest to close down issues needing lengthy discussions"
+    events: [ issue_comment ]
+    conditions:
+      - action = "created"
+      - count(igrep("/(VarCI-bot)/", commenters)) = 4
+    comment: >
+      This discussion has been going on for a while now. Let's:
+
+      1. Close it down and summarize the state of affairs in a new issue
+      2. Move the discussion somewhere else until it can be made more clear, or
+      3. Keep talking in this thread after it's closed until we decide to do 1 or 2.
