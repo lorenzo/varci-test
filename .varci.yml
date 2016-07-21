@@ -14,7 +14,7 @@ ruleset:
     events: [ issue_comment ]
     conditions:
       - action = "created"
-      - count(igrep("/(VarCI-bot)/", commenters)) = 4
+      - count(igrep("/(VarCI-bot)/", issue.commenters)) = 6
     comment: >
       This discussion has been going on for a while now. Let's:
 
