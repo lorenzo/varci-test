@@ -26,7 +26,7 @@ ruleset:
 
   contributors_agreement:
         name: "Check list of people who have given contributors agreements"
-             events: [ issues ]
+             events: [ pull_request ]
          conditions:
            - action = "created"
            - user.login in read("contributors.json") ]
