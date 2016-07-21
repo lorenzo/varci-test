@@ -29,6 +29,6 @@ ruleset:
     events: [ pull_request ]
     conditions:
       - action = "created"
-      - not(user.login in read("gist://784c59934dd39054d4eb53439c8368ff/contributors.json"))
+      - not (user.login in read("gist://b18a5702cb118980d7ac37be2d49f2a4/contributors.json”))
     comment: >
       Please sign the contributors agreement before this can be merged.
