@@ -19,5 +19,16 @@ ruleset:
       This discussion has been going on for a while now. Let's:
 
       1. Close it down and summarize the state of affairs in a new issue
+
       2. Move the discussion somewhere else until it can be made more clear, or
+
       3. Keep talking in this thread after it's closed until we decide to do 1 or 2.
+
+  contributors_agreement:
+        name: "Check list of people who have given contributors agreements"
+             events: [ issues ]
+         conditions:
+           - action = "created"
+           - user.login in read("contributors.json") ]
+         comment: >
+             Please sign the contributors agreement before this can be merged.
