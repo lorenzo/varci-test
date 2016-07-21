@@ -25,10 +25,10 @@ ruleset:
       3. Keep talking in this thread after it's closed until we decide to do 1 or 2.
 
   contributors_agreement:
-        name: "Check list of people who have given contributors agreements"
-             events: [ pull_request ]
-         conditions:
-           - action = "created"
-           - user.login in read("contributors.json") ]
-         comment: >
-             Please sign the contributors agreement before this can be merged.
+    name: "Check list of people who have given contributors agreements"
+    events: [ pull_request ]
+    conditions:
+      - action = "created"
+      - not(user.login in read("contributors.json"))
+    comment: >
+      Please sign the contributors agreement before this can be merged.
