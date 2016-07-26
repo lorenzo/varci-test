@@ -3,7 +3,7 @@ ruleset:
   welcome:
     name: "Guide contributors to the contribution checklist and related material"
     events: [ issues, pull_request ]
-    condition: action = "opened"
+    conditions: action = "opened"
     comment: >
       Thanks for the {{ subject }}! Make sure it satisfies [this checklist](https://github.com/process-bot/contribution-checklist/blob/master/{{ subject = issue ? "issues" : "pulls" }}.md). My human colleagues will appreciate it!
 
@@ -12,7 +12,7 @@ ruleset:
   close_down:
     name: "Suggest to close down issues needing lengthy discussions"
     events: [ issue_comment ]
-    condition:
+    conditions:
       - action = "created"
       - count(igrep("/(VarCI-bot)/", issue.commenters)) = 6
     comment: >
@@ -27,7 +27,7 @@ ruleset:
   contributors_agreement:
     name: "Check list of people who have given contributors agreements"
     events: [ pull_request ]
-    condition:
+    conditions:
       - action = "created"
       - not (user.login in read("github://lorenzo/varci-test/contributors.json”))
     comment: >
