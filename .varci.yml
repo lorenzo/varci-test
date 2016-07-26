@@ -29,6 +29,6 @@ ruleset:
     events: [ pull_request ]
     conditions:
       - action = "created"
-      - not (user.login in read("github://lorenzo/varci-test/contributors.json”))
+      - not (user.login in read("contributors.json", repository.full_name))
     comment: >
       Please sign the contributors agreement before this can be merged.
