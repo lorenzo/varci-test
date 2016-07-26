@@ -12,7 +12,7 @@ ruleset:
   close_down:
     name: "Suggest to close down issues needing lengthy discussions"
     events: [ issue_comment ]
-    conditions:
+    condition:
       - action = "created"
       - count(igrep("/(VarCI-bot)/", issue.commenters)) = 6
     comment: >
@@ -27,8 +27,8 @@ ruleset:
   contributors_agreement:
     name: "Check list of people who have given contributors agreements"
     events: [ pull_request ]
-    conditions:
+    condition:
       - action = "created"
-      - not (user.login in read("contributors.json", repository.full_name))
+      - not (user.login in read("github://lorenzo/varci-test/contributors.json”))
     comment: >
       Please sign the contributors agreement before this can be merged.
