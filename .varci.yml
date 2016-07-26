@@ -2,10 +2,10 @@ ruleset:
 
   welcome:
     name: "Guide contributors to the contribution checklist and related material"
-    events: [ issues, pull_request ]
+    events: [ issues ]
     conditions: action = "opened"
     comment: >
-      Thanks for the {{ subject }}! Make sure it satisfies [this checklist](https://github.com/process-bot/contribution-checklist/blob/master/{{ subject = issue ? "issues" : "pulls" }}.md). My human colleagues will appreciate it!
+      Thanks for the issue! Make sure it satisfies [this checklist](https://github.com/process-bot/contribution-checklist/blob/master/issues.md). My human colleagues will appreciate it!
 
       Here is [what to expect next](https://github.com/process-bot/contribution-checklist/blob/master/expectations.md), and if anyone wants to comment, keep [these things](https://github.com/process-bot/contribution-checklist/blob/master/participation.md) in mind.
 
